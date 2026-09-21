@@ -89,8 +89,15 @@ p { margin: 0 0 1rem; }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--indigo); color: #fff; box-shadow: 0 8px 20px color-mix(in srgb, var(--indigo) 35%, transparent); }
-.btn-primary:hover { background: var(--indigo-dark); color: #fff; }
+.btn-primary {
+  background: linear-gradient(180deg, var(--indigo-2), var(--indigo));
+  color: #fff;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--indigo) 38%, transparent), inset 0 1px 0 rgba(255,255,255,.20);
+}
+.btn-primary:hover {
+  background: linear-gradient(180deg, var(--indigo), var(--indigo-dark)); color: #fff;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--indigo) 50%, transparent), inset 0 1px 0 rgba(255,255,255,.28);
+}
 .btn-accent { background: var(--accent); color: #241800; }
 .btn-accent:hover { background: var(--accent-2); color: #241800; }
 .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
@@ -186,7 +193,7 @@ p { margin: 0 0 1rem; }
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .card h3 { color: var(--text); }
-.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--indigo) 40%, var(--border)); }
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--indigo) 46%, var(--border)); }
 .card .icon {
   width: 50px; height: 50px; border-radius: 13px; display: grid; place-items: center;
   font-size: 1.55rem; margin-bottom: 1rem; background: color-mix(in srgb, var(--indigo) 12%, transparent);
@@ -211,7 +218,10 @@ p { margin: 0 0 1rem; }
 .pcard .card-body p { color: var(--muted); flex: 1; }
 
 /* Value / mission cards */
-.vcard { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.7rem; box-shadow: var(--shadow-sm); }
+.vcard { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.vcard::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--indigo), var(--accent)); }
+.vcard.accent::before { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.vcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--indigo) 40%, var(--border)); }
 .vcard .vicon {
   width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 1.6rem;
   margin-bottom: 1rem; color: #fff; background: linear-gradient(135deg, var(--indigo), var(--indigo-2));
@@ -306,9 +316,52 @@ p { margin: 0 0 1rem; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* ---------- Product logo ---------- */
-.product-logo { width: 118px; height: auto; margin-bottom: 1.1rem; filter: drop-shadow(0 8px 18px rgba(14,23,38,.18)); }
-.card-logo {
-  position: absolute; bottom: 12px; right: 12px; width: 54px; height: 54px;
-  border-radius: 13px; background: #fff; padding: 5px; object-fit: contain;
-  box-shadow: var(--shadow-md); border: 1px solid var(--border);
+.product-logo { width: 124px; height: auto; margin-bottom: 1.1rem; filter: drop-shadow(0 10px 22px rgba(14,23,38,.22)); }
+
+/* ---------- Brand panel (logo-forward product cards) ---------- */
+.pcard .card-media.brand-panel {
+  display: grid; place-items: center; padding: 1.7rem; position: relative; overflow: hidden;
+  background:
+    radial-gradient(135% 130% at 50% -20%, color-mix(in srgb, var(--indigo) 34%, #0c1526), #0a1322 70%);
+}
+.pcard .card-media.brand-panel::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(58% 46% at 50% 42%, rgba(255,255,255,.12), transparent 72%),
+    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: auto, 18px 18px;
+}
+.pcard .card-media.brand-panel img.brand-logo {
+  position: relative; z-index: 1; width: auto; height: 78%; max-height: 152px;
+  object-fit: contain; filter: drop-shadow(0 14px 28px rgba(0,0,0,.48));
+  transition: transform .45s cubic-bezier(.2,.7,.3,1);
+}
+.pcard:hover .card-media.brand-panel img.brand-logo { transform: scale(1.07) translateY(-2px); }
+.card-media.brand-panel .pill {
+  background: rgba(255,255,255,.16); color: #eafff2; border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(6px); box-shadow: none;
+}
+.live-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #34d399;
+  margin-right: 5px; vertical-align: middle; box-shadow: 0 0 0 3px color-mix(in srgb, #34d399 32%, transparent);
+  animation: livepulse 2s ease-in-out infinite;
+}
+@keyframes livepulse { 0%,100% { box-shadow: 0 0 0 3px color-mix(in srgb,#34d399 32%,transparent);} 50% { box-shadow: 0 0 0 6px color-mix(in srgb,#34d399 6%,transparent);} }
+
+/* ---------- Gradient text ---------- */
+.grad-text {
+  background: linear-gradient(102deg, #ffffff 0%, #cbb8ff 46%, var(--accent-2) 104%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- Hero stat strip ---------- */
+.hero-strip {
+  display: flex; flex-wrap: wrap; gap: 1rem 2.4rem; justify-content: center;
+  margin-top: 2.6rem; padding-top: 1.9rem; border-top: 1px solid rgba(255,255,255,.12);
+}
+.hero-strip .hs { display: flex; align-items: center; gap: .55rem; color: #aebbd4; font-weight: 600; font-size: .92rem; }
+.hero-strip .hs b { color: #fff; font-family: var(--font-head); }
+.hero-strip .hs .ic {
+  display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); font-size: .85rem;
 }
