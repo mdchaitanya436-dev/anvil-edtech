@@ -226,10 +226,11 @@ p { margin: 0 0 1rem; }
 .vcard.accent::before { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
 .vcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--indigo) 40%, var(--border)); }
 .vcard .vicon {
-  width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 1.6rem;
-  margin-bottom: 1rem; color: #fff; background: linear-gradient(135deg, var(--indigo), var(--indigo-2));
+  width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center; font-size: 1.6rem;
+  margin-bottom: 1rem; color: #fff; background: linear-gradient(140deg, #17294a, #0e1c34);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 34%, transparent);
 }
-.vcard.accent .vicon { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #241800; }
+.vcard.accent .vicon { background: linear-gradient(140deg, var(--gold-2), var(--gold-deep)); color: #241800; box-shadow: none; }
 .vcard p { color: var(--muted); margin-bottom: 0; }
 
 /* ---------- Feature list ---------- */
