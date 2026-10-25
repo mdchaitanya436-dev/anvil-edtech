@@ -23,8 +23,10 @@ function doPost(e) {
     return reply({ ok: false, error: 'bad_json' });
   }
 
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Leads') ||
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Leads');
+  // 'Website raw' is read by anviledtech-reports/update_leads.py, which merges it
+  // with the Meta ad leads into the 'All Leads' tab every 2 hours.
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Website raw') ||
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Website raw');
   if (sheet.getLastRow() === 0) sheet.appendRow(COLUMNS);
 
   // Store values as text so phone numbers keep their digits and no cell runs a formula.
