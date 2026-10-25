@@ -6,6 +6,10 @@
  * Steps are in README.md next to this file.
  */
 
+// ID of the 'Anvil Edtech – Leads' sheet. Leave empty if this script is bound to the sheet
+// (Extensions -> Apps Script); fill it in for a standalone script project.
+var SHEET_ID = '';
+
 // Who gets an email for every new request. Separate several addresses with commas.
 var NOTIFY_EMAIL = 'anviledtechprivatelimited@gmail.com';
 
@@ -25,8 +29,8 @@ function doPost(e) {
 
   // 'Website raw' is read by anviledtech-reports/update_leads.py, which merges it
   // with the Meta ad leads into the 'All Leads' tab every 2 hours.
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Website raw') ||
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Website raw');
+  var book = SHEET_ID ? SpreadsheetApp.openById(SHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = book.getSheetByName('Website raw') || book.insertSheet('Website raw');
   if (sheet.getLastRow() === 0) sheet.appendRow(COLUMNS);
 
   // Store values as text so phone numbers keep their digits and no cell runs a formula.
