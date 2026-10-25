@@ -51,6 +51,7 @@
     if (a.hasAttribute('data-wa')) track('Contact', { method: 'whatsapp' });
     else if (a.hasAttribute('data-tel')) track('Contact', { method: 'call' });
     else if (a.hasAttribute('data-mail')) track('Contact', { method: 'email' });
+    else if (a.hasAttribute('data-brochure')) track('ViewContent', { content_name: 'Brochure PDF' });
   });
 
   // ---- Demo-request form ----------------------------------------------------
