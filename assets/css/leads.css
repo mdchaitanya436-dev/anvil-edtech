@@ -1,0 +1,60 @@
+/* Anvil Edtech — institute/school sales pages: languages, steps, demo form, WhatsApp button. */
+
+.lang-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+.lang-row span {
+  border: 1.5px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-radius: 999px; padding: .25rem .8rem; font-size: .95rem;
+  font-family: "Nirmala UI", "Noto Sans", var(--font-body);
+}
+.hero-dark .lang-row span { color: #fff; }
+.lang-row .any { background: var(--gold); color: #241800; border-color: var(--gold); font-weight: 700; }
+.hero-dark .lang-row .any { color: #241800; }
+
+.audience { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+.audience .panel h3 { margin-top: 0; }
+.audience ul { margin: .6rem 0 0; padding-left: 1.1rem; color: var(--muted); }
+.audience li { margin: .3rem 0; }
+
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; }
+.step { background: var(--navy-2); color: #e8eef9; border-radius: var(--radius); padding: 1rem; }
+.step b { display: block; color: var(--gold); margin-bottom: .3rem; }
+.step:last-child { background: var(--gold); color: #241800; }
+.step:last-child b { color: #241800; }
+
+.proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.proof a { display: block; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); color: var(--text); text-decoration: none; }
+.proof a:hover { border-color: var(--gold); }
+.proof b { display: block; }
+.proof span { color: var(--muted); font-size: .92rem; }
+
+.demo-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: start; }
+.demo-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.4rem; box-shadow: var(--shadow-md); }
+.demo-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.demo-form label { display: block; font-size: .85rem; font-weight: 600; margin: .7rem 0 .3rem; color: var(--text); }
+.demo-form input, .demo-form select, .demo-form textarea {
+  width: 100%; padding: .7rem .8rem; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--bg); color: var(--text); font: inherit; font-size: 16px;
+}
+.demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus { outline: none; box-shadow: var(--ring); border-color: var(--indigo); }
+.demo-form button { width: 100%; margin-top: 1rem; justify-content: center; }
+.demo-form .fine { font-size: .8rem; color: var(--muted); margin: .7rem 0 0; }
+.form-status { margin: .8rem 0 0; font-weight: 600; font-size: .92rem; }
+.form-status.ok { color: #1f8a4c; }
+.form-status.err { color: var(--crimson); }
+.contact-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .6rem; }
+.contact-list a { color: inherit; font-weight: 600; }
+
+.wa-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 50; width: 58px; height: 58px; border-radius: 50%;
+  background: #25d366; display: grid; place-items: center; box-shadow: var(--shadow-lg);
+}
+.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof, .audience, .demo-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .demo-form .row { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+}

@@ -1,9 +1,29 @@
 # Anvil Edtech — Website
 
-A fast, static marketing site for **Anvil Edtech Pvt Ltd** that showcases the company's products
-(TS Police Hub, Vidyalaya, and more) and sends students to the right links.
+The sales site for **Anvil Edtech Private Limited**: we build and run custom websites and Android
+apps for coaching institutes and schools, in any Indian language or English. The homepage is
+also the landing page for Meta (Facebook/Instagram) ads, and it links to the platforms we
+already run (AP Groups Hub, AP Police Hub, TS Police Hub) as proof.
 
 No backend, no build step — just HTML, CSS and a little JavaScript. It deploys anywhere.
+
+## Leads and tracking (October 2026)
+
+- **Settings** live in `assets/js/config.js`: Meta Pixel ID, phone/WhatsApp, email, and the
+  form endpoint. Change values there only.
+- **Meta Pixel** `2990692574613458` (dataset "Anvil Edtech Web" in the Anvil Edtech business
+  portfolio) loads on the homepage from `assets/js/leads.js`. Events:
+  - `PageView` on every visit;
+  - `Lead` when the demo form is sent;
+  - `Contact` when someone taps WhatsApp, Call or Email.
+- **Ad source**: UTM tags and `fbclid` from ad links are kept for the visit and sent with the form.
+- **Demo form**: sends to a Google Sheet + email once `leadEndpoint` is set
+  (see `tools/lead-to-sheet/README.md`). Until then it opens WhatsApp with the details typed in.
+- **Contact everywhere**: +91 83093 90436 (call and WhatsApp), plus a floating WhatsApp button.
+- **Later**: Conversions API (server-side events) would make ad tracking more reliable when
+  browsers block the Pixel; it needs a small server or Apps Script call with an access token.
+- **Ad links**: use URLs like
+  `https://anviledtech.com/?utm_source=meta&utm_medium=paid&utm_campaign=institutes_demo&utm_content=<ad-name>#demo`.
 
 ```
 Anvil Edtech/
@@ -27,7 +47,7 @@ Here's the checklist:
 **Company (index.html)** — ✅ filled from the official details on tspolicehub.com
 - Legal entity: **Anvil Edtech Private Limited** · CIN U85499TS2026PTC221008 · Udyam UDYAM-TS-20-0208982
 - Address: Plot No. 83, Boduppal, Medchal–Malkajgiri, Hyderabad, Telangana 500092
-- Email tspolicehub@gmail.com · Phone +91 95500 05068
+- Email tspolicehub@gmail.com · Phone +91 83093 90436 (sales; set in `assets/js/config.js`)
 - [ ] Optional: a dedicated company email (vs. the TS Police Hub inbox) if you have one
 - [ ] Optional: social links (WhatsApp / Instagram / Telegram) if you want them in the footer
 
