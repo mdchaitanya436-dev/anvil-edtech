@@ -7,7 +7,7 @@
  */
 
 // Who gets an email for every new request. Separate several addresses with commas.
-var NOTIFY_EMAIL = 'tspolicehub@gmail.com';
+var NOTIFY_EMAIL = 'anviledtechprivatelimited@gmail.com';
 
 var COLUMNS = [
   'submittedAt', 'name', 'phone', 'institute', 'type', 'city', 'students', 'languages',

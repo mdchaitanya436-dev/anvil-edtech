@@ -7,7 +7,7 @@ window.ANVIL = {
   phoneE164: '+918309390436',
   phoneDisplay: '+91 83093 90436',
   whatsapp: '918309390436',
-  email: 'tspolicehub@gmail.com',
+  email: 'anviledtechprivatelimited@gmail.com',
 
   // Where demo-request forms are sent. Paste the Google Apps Script web-app URL
   // here (see tools/lead-to-sheet/README.md). While it is empty, the form opens

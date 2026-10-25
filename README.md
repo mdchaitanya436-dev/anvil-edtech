@@ -47,7 +47,7 @@ Here's the checklist:
 **Company (index.html)** — ✅ filled from the official details on tspolicehub.com
 - Legal entity: **Anvil Edtech Private Limited** · CIN U85499TS2026PTC221008 · Udyam UDYAM-TS-20-0208982
 - Address: Plot No. 83, Boduppal, Medchal–Malkajgiri, Hyderabad, Telangana 500092
-- Email tspolicehub@gmail.com · Phone +91 83093 90436 (sales; set in `assets/js/config.js`)
+- Email anviledtechprivatelimited@gmail.com · Phone +91 83093 90436 (sales; set in `assets/js/config.js`)
 - [ ] Optional: a dedicated company email (vs. the TS Police Hub inbox) if you have one
 - [ ] Optional: social links (WhatsApp / Instagram / Telegram) if you want them in the footer
 
